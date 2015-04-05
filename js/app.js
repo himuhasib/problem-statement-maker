@@ -19,6 +19,9 @@ app.controller('myController', function($scope){
 		$scope.problemBuilder = 0;
 		$scope.problemViewer = 1;
 		$scope.showButtons = 1;
+
+		$scope.setLocalStorage();
+
 	}
 
 	$scope.showFinal = function(){
@@ -32,6 +35,31 @@ app.controller('myController', function($scope){
 		$scope.problemViewer = 0;
 		$scope.showButtons = 0;
 	}
+
+
+	$scope.allProperties = ["problemTitle", "problemBody", "inputSpec", "outputSpec", "sampleInput", "sampleOutput", "specialNote"];
+
+
+
+	$scope.getFromLocalStorage = function(){
+
+		for(prop of $scope.allProperties)
+		{
+			$scope[prop] = localStorage[prop] ? localStorage[prop] : "";
+		}
+	}
+
+
+	$scope.setLocalStorage = function(){
+		for(prop of $scope.allProperties)
+		{
+			localStorage[prop] = $scope[prop] ? $scope[prop] : "";
+		}
+	}
+
+	$scope.getFromLocalStorage();
+
+
 
 
 });
