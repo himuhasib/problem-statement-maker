@@ -16,6 +16,13 @@ app.controller('myController', function($scope){
 	$scope.showButtons = 1;
 
 	$scope.showPreview = function(){
+
+		$("#problemBody").html($scope.problemBody);
+		$("#inputSpec").html($scope.inputSpec);
+		$("#outputSpec").html($scope.outputSpec);
+		$("#specialNote").html($scope.specialNote);
+
+
 		$scope.problemBuilder = 0;
 		$scope.problemViewer = 1;
 		$scope.showButtons = 1;
