@@ -52,7 +52,7 @@ app.controller('myController', function($scope){
 
 		for(prop of $scope.allProperties)
 		{
-			$scope[prop] = localStorage[prop] ? localStorage[prop] : "";
+			$scope[prop] = localStorage[prop] !=='undefined' ? localStorage[prop] : $scope[prop];
 		}
 	}
 
@@ -60,7 +60,7 @@ app.controller('myController', function($scope){
 	$scope.setLocalStorage = function(){
 		for(prop of $scope.allProperties)
 		{
-			localStorage[prop] = $scope[prop] ? $scope[prop] : "";
+			localStorage[prop] = $scope[prop] !=='undefined' ? $scope[prop] : "";
 		}
 	}
 
