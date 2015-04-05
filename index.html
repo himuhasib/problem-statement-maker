@@ -107,46 +107,64 @@
 
 
 			<div ng-show="problemViewer">
-				<center>
-					<h1>{{problemTitle}}</h1>
-				</center>
-				<hr />
-				<p id="problemBody">
+				
+				<div ng-show="problemTitle">
+					<center>
+						<h1>{{problemTitle}}</h1>
+					</center>
+					<hr />
+				</div>
+				
+
+				<p id="problemBody" ng-show="problemBody">
 					{{problemBody}}
 				</p>
-				<h2>Input Specification</h2>
-				<hr />
-				<p id="inputSpec">
-					{{inputSpec}}
-				</p>
-				<h2>Output Specification</h2>
-				<hr />
-				<p id="outputSpec">
-					{{outputSpec}}
-				</p>
-
-				<h2>Sample Input/Output</h2>
 				
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>Input</th>
-							<th>Output</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<pre>{{sampleInput}}</pre>
-							</td>
-							<td>
-								<pre>{{sampleOutput}}</pre>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<hr />
-				<p>Special Note: {{specialNote}}</p>
+
+				<div ng-show="inputSpec">
+					<h2>Input Specification</h2>
+					<hr />
+					<p id="inputSpec">
+						{{inputSpec}}
+					</p>
+				</div>
+
+				<div ng-show="outputSpec">
+					<h2>Output Specification</h2>
+					<hr />
+					<p id="outputSpec">
+						{{outputSpec}}
+					</p>
+				</div>
+
+				<div ng-show="sampleInput || sampleOutput">
+
+					<h2>Sample Input/Output</h2>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Input</th>
+								<th>Output</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<pre>{{sampleInput}}</pre>
+								</td>
+								<td>
+									<pre>{{sampleOutput}}</pre>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+
+				<div ng-show="specialNote">
+					<hr />
+					<p>Special Note: {{specialNote}}</p>
+				</div>
 
 				<div ng-show="showButtons">
 					<button class="btn btn-primary btn-lg" ng-click="showFinal()">Make it Final!</button>
